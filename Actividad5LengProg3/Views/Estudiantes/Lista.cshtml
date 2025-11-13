@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Actividad5LengProg3.Models.Estudiante>
+
+<h2 class="text-center">Lista de Estudiantes</h2>
+<hr />
+
+<table class="table table-striped table-bordered w-75 mx-auto">
+    <thead class="table-dark">
+        <tr>
+            <th>Matrícula</th>
+            <th>Nombre Completo</th>
+            <th>Carrera</th>
+            <th>Recinto</th>
+            <th>Correo</th>
+            <th>Becado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.Matricula</td>
+                <td>@e.NombreCompleto</td>
+                <td>@e.Carrera?.Nombre</td>
+                <td>@e.Recinto?.Nombre</td>
+                <td>@e.CorreoInstitucional</td>
+                <td>@(e.EstaBecado ? "Sí" : "No")</td>
+                <td>
+                    <a asp-action="Editar" asp-route-matricula="@e.Matricula" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-matricula="@e.Matricula" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-primary">Registrar nuevo estudiante</a>
+

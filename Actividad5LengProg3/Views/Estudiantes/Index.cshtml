@@ -1,0 +1,108 @@
+﻿@model Actividad5LengProg3.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Registro de Estudiantes";
+}
+
+<h2 class="text-center">Registro de Estudiantes</h2>
+<hr />
+
+<form asp-action="Registrar" method="post" class="w-75 mx-auto">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+    <div class="form-group mb-3">
+        <label>Nombre Completo</label>
+        <input asp-for="NombreCompleto" class="form-control" />
+        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Matrícula</label>
+        <input asp-for="Matricula" class="form-control" />
+        <span asp-validation-for="Matricula" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Carrera</label>
+        <select asp-for="CarreraId" class="form-control"
+                asp-items="ViewBag.Carreras">
+            <option value="">Seleccione una carrera</option>
+        </select>
+        <span asp-validation-for="CarreraId" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group mb-3">
+        <label>Recinto</label>
+        <select asp-for="RecintoId" class="form-control"
+                asp-items="ViewBag.Recintos">
+            <option value="">Seleccione un recinto</option>
+        </select>
+        <span asp-validation-for="RecintoId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Correo Institucional</label>
+        <input asp-for="CorreoInstitucional" class="form-control" />
+        <span asp-validation-for="CorreoInstitucional" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Celular</label>
+        <input asp-for="Celular" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Teléfono</label>
+        <input asp-for="Telefono" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Dirección</label>
+        <textarea asp-for="Direccion" class="form-control"></textarea>
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Fecha de nacimiento</label>
+        <input asp-for="FechaNacimiento" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Género</label>
+        <select asp-for="Genero" class="form-control">
+            <option value="">Seleccione</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Otro</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Turno</label>
+        <select asp-for="Turno" class="form-control">
+            <option value="">Seleccione</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+        </select>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="EstaBecado" class="form-check-input" />
+        <label class="form-check-label">¿Está becado?</label>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Porcentaje de beca</label>
+        <input asp-for="PorcentajeBeca" class="form-control" type="number" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a asp-action="Lista" class="btn btn-secondary">Ver Lista</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

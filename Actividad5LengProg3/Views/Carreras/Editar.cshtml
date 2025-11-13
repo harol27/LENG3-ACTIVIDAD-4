@@ -1,0 +1,21 @@
+﻿@model Actividad5LengProg3.Models.Carrera
+
+<h2>Editar Carrera</h2>
+
+<form asp-action="Editar" method="post" class="w-75 mx-auto">
+    @Html.HiddenFor(m => m.Codigo)
+    <div class="form-group mb-3">
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+        <label>Cantidad de Créditos</label>
+        <input asp-for="CantidadCreditos" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+        <label>Cantidad de Materias</label>
+        <input asp-for="CantidadMaterias" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

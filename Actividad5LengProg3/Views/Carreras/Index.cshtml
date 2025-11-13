@@ -1,0 +1,31 @@
+﻿@model List<Actividad5LengProg3.Models.Carrera>
+
+<h2>Lista de Carreras</h2>
+<a asp-action="Crear" class="btn btn-success mb-2">Agregar Carrera</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Créditos</th>
+            <th>Materias</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Codigo</td>
+                <td>@c.Nombre</td>
+                <td>@c.CantidadCreditos</td>
+                <td>@c.CantidadMaterias</td>
+                <td>
+                    <a asp-action="Editar" asp-route-codigo="@c.Codigo" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-codigo="@c.Codigo" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar esta carrera?')">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

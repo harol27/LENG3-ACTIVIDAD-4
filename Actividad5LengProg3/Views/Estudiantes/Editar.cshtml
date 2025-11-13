@@ -1,0 +1,74 @@
+﻿@model Actividad5LengProg3.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Editar Estudiante";
+}
+
+<h2 class="text-center">Editar Estudiante</h2>
+<hr />
+
+<form asp-action="Editar" method="post" class="w-75 mx-auto">
+
+    @Html.HiddenFor(m => m.Matricula)
+
+    <div class="form-group mb-3">
+        <label>Nombre Completo</label>
+        <input asp-for="NombreCompleto" class="form-control" />
+        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Carrera</label>
+        <select asp-for="Carrera" class="form-control">
+            <option>Ingeniería en Sistemas</option>
+            <option>Contabilidad</option>
+            <option>Administración</option>
+            <option>Arquitectura</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Recinto</label>
+        <select asp-for="Recinto" class="form-control">
+            <option>Santo Domingo</option>
+            <option>Santiago</option>
+            <option>La Vega</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Correo Institucional</label>
+        <input asp-for="CorreoInstitucional" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Dirección</label>
+        <textarea asp-for="Direccion" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Turno</label>
+        <select asp-for="Turno" class="form-control">
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+        </select>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="EstaBecado" class="form-check-input" />
+        <label class="form-check-label">¿Está becado?</label>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Porcentaje de beca</label>
+        <input asp-for="PorcentajeBeca" class="form-control" type="number" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a asp-action="Lista" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

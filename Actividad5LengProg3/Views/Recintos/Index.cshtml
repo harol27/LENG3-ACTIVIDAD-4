@@ -1,0 +1,29 @@
+﻿@model List<Actividad5LengProg3.Models.Recinto>
+
+<h2>Lista de Recintos</h2>
+<a asp-action="Crear" class="btn btn-success mb-2">Agregar Recinto</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Codigo</td>
+                <td>@r.Nombre</td>
+                <td>@r.Direccion</td>
+                <td>
+                    <a asp-action="Editar" asp-route-codigo="@r.Codigo" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-codigo="@r.Codigo" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar este recinto?')">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
